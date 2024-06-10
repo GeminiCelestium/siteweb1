@@ -1,14 +1,17 @@
 <template>
-  <PageAccueil msg="Site Web 1"/>
+  <div id="app">
+    <HomeHeader />
+    <RouterView />
+  </div>  
 </template>
 
 <script>
-import PageAccueil from './components/PageAccueil.vue'
+import HomeHeader from './components/HomeHeader.vue';
 
 export default {
   name: 'App',
   components: {
-    PageAccueil
+    HomeHeader
   }
 }
 </script>
@@ -20,6 +23,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin-top: 10px;
 }
 </style>
