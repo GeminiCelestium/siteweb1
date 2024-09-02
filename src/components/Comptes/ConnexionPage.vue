@@ -1,11 +1,11 @@
 <template>
-    <div>
+    <div class="login-container">
       <h2>Connexion</h2>
       <form @submit.prevent="login">
-        <input type="email" v-model="email" placeholder="Email" required />
-        <input type="password" v-model="password" placeholder="Mot de passe" required />
+        <input type="email" v-model="email" placeholder="Email" required /><br/>
+        <input type="password" v-model="password" placeholder="Mot de passe" required /><br/>
         <button type="submit">Se connecter</button>
-      </form>
+      </form><br/>
       <p v-if="errorMessage" class="error">{{ errorMessage }}</p>
       <p>
         Vous n'avez pas encore de compte ? <router-link to="/inscription">S'inscrire</router-link>
@@ -57,8 +57,43 @@
   </script>
   
 <style scoped>
-.error {
+  .login-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  input {
+    padding: 10px;
+    font-size: 1.2em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  button {
+    padding: 10px;
+    font-size: 1.2em;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  
+  .error {
     color: red;
-}
+    font-size: 1.2em;
+  }
 </style>
   

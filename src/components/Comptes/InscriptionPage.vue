@@ -1,9 +1,9 @@
 <template>
-  <div>
+  <div class="signup-container">
     <h2>Inscription</h2>
     <form @submit.prevent="register">
-      <input type="email" v-model="email" placeholder="Email" required />
-      <input type="password" v-model="password" placeholder="Mot de passe" required />
+      <input type="email" v-model="email" placeholder="Email" required /><br/>
+      <input type="password" v-model="password" placeholder="Mot de passe" required /><br/>
       <button type="submit">S'inscrire</button>
       <p v-if="errorMessage" class="error">{{ errorMessage }}</p>
     </form>
@@ -51,5 +51,37 @@ export default {
 </script>
 
 <style scoped>
-/* Styles ici */
+  .signup-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  input {
+    padding: 10px;
+    font-size: 1.2em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  button {
+    padding: 10px;
+    font-size: 1.2em;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: #45a049;
+  }
 </style>
