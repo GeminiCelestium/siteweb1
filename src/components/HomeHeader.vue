@@ -11,8 +11,8 @@
     </nav>
     <div class="auth">
       <template v-if="user">
-        <span>Bienvenue, {{ getUsername() }}</span> |
-        <button @click="logout">Se déconnecter</button>
+        <span>Bienvenue, {{ getUsername() }} !</span>
+        <button @click="logout" class="boutonConnexion">Se déconnecter</button>
       </template>
       <template v-else>
         <router-link to="/connexion">
@@ -35,7 +35,6 @@ export default {
     };
   },
   created() {
-    // Écoute les changements d'état de l'utilisateur
     onAuthStateChanged(auth, (user) => {
       this.user = user;
     });
@@ -70,22 +69,27 @@ export default {
   color: white;
   padding: 10px 20px;
 }
+
 .logo h1 {
   margin: 0;
 }
+
 .nav ul {
   list-style: none;
   padding: 0;
   margin: 0;
   display: flex;
 }
+
 .nav li {
   margin: 0 10px;
 }
+
 .nav a {
   color: white;
   text-decoration: none;
 }
+
 .auth button {
   background-color: #4CAF50;
   color: white;
@@ -93,7 +97,12 @@ export default {
   padding: 10px 20px;
   cursor: pointer;
 }
+
 .auth button:hover {
   background-color: #45a049;
+}
+
+.boutonConnexion {
+  margin-left: 15px;
 }
 </style>
