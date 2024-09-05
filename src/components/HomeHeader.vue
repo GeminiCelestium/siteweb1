@@ -7,6 +7,9 @@
       <ul>
         <li><router-link to="/">Accueil</router-link></li> |
         <li><router-link to="/about">A propos</router-link></li>
+        <template v-if="user">
+          | <li><router-link to="/account">Mon Compte</router-link></li>
+        </template>
       </ul>
     </nav>
     <div class="auth">
@@ -51,6 +54,7 @@ export default {
         .then(() => {
           this.user = null;
           alert('Déconnexion réussie');
+          this.$router.push({ name: 'Home' });
         })
         .catch(error => {
           console.error('Erreur de déconnexion :', error.message);

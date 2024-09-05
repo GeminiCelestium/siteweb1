@@ -13,6 +13,7 @@
 <script>
 import { auth } from '../../firebase.config.js';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { Utilisateur } from '../../models/Utilisateur.js';
 
 export default {
   data() {
@@ -26,6 +27,8 @@ export default {
     async register() {
       try {
         const userCredential = await createUserWithEmailAndPassword(auth, this.email, this.password);
+        Utilisateur.email = userCredential.user.email;
+        Utilisateur.motDePasse = userCredential.user.password;
         console.log('Utilisateur créé avec succès:', userCredential.user);
         this.$router.push({ name: 'Home' });
       } catch (error) {
